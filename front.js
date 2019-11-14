@@ -1,6 +1,7 @@
 var chatmsgStack;
 var userTextbox;
 var userSubmitBtn;
+var openChatBtn;
 //const API_URL = "http://localhost:5566/api/chat";
 const API_URL = "http://125.181.9.94:5566/api/chat";
 
@@ -65,15 +66,23 @@ function hdlEnterOnTextbox(evt) {
 	}
 }
 
+function hdlOpenChat() {
+	var chatroom = $(".chatroom");
+	chatroom.toggle();
+}
+
 function readyGlobalElems(){
 	chatmsgStack = $("#dmstack");
 	userTextbox = $("#dmtext");
 	userSubmitBtn = $("#dmbtn");
+	openChatBtn = $("#openChat");
 }
 function main() {
 	readyGlobalElems();
 	userSubmitBtn.click(hdlUserSubmit);
 	userTextbox.keydown(hdlEnterOnTextbox);
+	openChatBtn.click(hdlOpenChat);
+
 	console.log('Doum front-end. - Web page');
 
 	msgBot('안녕하세요.');

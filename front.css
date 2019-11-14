@@ -8,14 +8,26 @@ li{
     border:2px dotted black;
 }
 
+#windowDiv {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 3px;
+}
 
 .chatroom {
-    position: absolute;
-    top:0;
+    /*position: absolute;*/
+    position: fixed;
+    /*top:0;*/
     bottom:0;
-    left:0;
-    right:0;
+    /* left:0; */
+    right: 20px;
     margin:3px;
+    height: 400px;
+    width: 300px;
+    display: none;
 }
 
 .chatmsgstack {
