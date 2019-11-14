@@ -1,0 +1,103 @@
+div, ul{
+    border:1px dotted blue;
+}
+li{
+    border:1px dotted red;
+}
+.chatuser{
+    border:2px dotted black;
+}
+
+
+.chatroom {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:3px;
+}
+
+.chatmsgstack {
+    list-style-type: none;
+    margin:10px;
+    padding:10px;
+    height:75%;
+    overflow-y: scroll;
+}
+
+.chatuser {
+    min-height:50px;
+}
+
+.chatuser div {
+    display:inline-block;
+}
+
+.chatuser div.ll {
+    
+}
+
+.chatuser div.rr {
+    
+}
+
+.chatuser textarea {
+    width:100%;
+    resize: none;
+}
+
+.chatmsgstack li {
+    position: relative;
+    margin-bottom: 10px;
+    clear: both;
+    float: right;
+    text-align: right;
+}
+
+.chatmsgstack li.isMe {
+    float: left;
+    text-align: left;
+}
+
+.chatmsgstack li .pict {
+    width: 3em;
+    height: 3em;
+}
+
+.chatmsgstack li .name {
+}
+.chatmsgstack li .text {
+}
+.chatmsgstack li .timestamp {
+}
+
+/* 메시지 등장 애니메이션을 부여한다. */
+.chatmsgstack li {
+    animation-name: appear;
+    animation-duration: 1s;
+    -webkit-animation-name: appear; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+}
+@keyframes appear {
+    from {opacity: 0.0; right: -25%;}
+    to {opacity: 1.0; right: 0;}
+}
+@-webkit-keyframes appear {
+    from {opacity: 0.0; right: -25%;}
+    to {opacity: 1.0; right: 0;}
+}
+.chatmsgstack li.isMe {
+    animation-name: appearMe;
+    animation-duration: 1s;
+    -webkit-animation-name: appearMe; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+}
+@keyframes appearMe {
+    from {opacity: 0.0; left: -25%;}
+    to {opacity: 1.0; left: 0;}
+}
+@-webkit-keyframes appearMe {
+    from {opacity: 0.0; left: -25%;}
+    to {opacity: 1.0; left: 0;}
+}
