@@ -17,7 +17,7 @@ li{
     margin: 3px;
 }
 
-.chatroom {
+.chat {
     /*position: absolute;*/
     position: fixed;
     /*top:0;*/
@@ -25,9 +25,31 @@ li{
     /* left:0; */
     right: 20px;
     margin:3px;
-    height: 400px;
+    height: auto;
     width: 300px;
     display: none;
+}
+
+.chatroom {
+    height: 300px;
+}
+
+.crstatusbar
+{
+    width: 100%;
+}
+
+.crstatusbar #statusbarname
+{
+    width: 78%;
+    float: left;
+}
+
+.crstatusbar .statusbarbutton
+{
+    width: 12%;
+    margin: 2px;
+    float: right;   
 }
 
 .chatmsgstack {
@@ -39,7 +61,8 @@ li{
 }
 
 .chatuser {
-    min-height:50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .chatuser div {
@@ -47,7 +70,11 @@ li{
 }
 
 .chatuser div.ll {
-    
+   width: 75%; 
+}
+
+.chatuser div.ll input {
+    width: 100%;
 }
 
 .chatuser div.rr {
@@ -84,6 +111,25 @@ li{
 .chatmsgstack li .timestamp {
 }
 
+#openChat {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    
+    width: 50px;
+    height: 50px;
+
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 1px #999;
+}
+
+#openChat:active {
+    box-shadow: 0 0px #999;
+    transform: translateY(1px);
+}
+
 /* 메시지 등장 애니메이션을 부여한다. */
 .chatmsgstack li {
     animation-name: appear;
@@ -113,3 +159,11 @@ li{
     from {opacity: 0.0; left: -25%;}
     to {opacity: 1.0; left: 0;}
 }
+
+/* footer
+{
+    position: fixed;
+    bottom: 4px;
+    width: 100%;
+    text-align: center;
+} */

@@ -2,6 +2,8 @@ var chatmsgStack;
 var userTextbox;
 var userSubmitBtn;
 var openChatBtn;
+var closeChatBtn;
+var minimizeChatBtn;
 //const API_URL = "http://localhost:5566/api/chat";
 const API_URL = "http://125.181.9.94:5566/api/chat";
 
@@ -47,6 +49,7 @@ function doQueryChatbot(qtext) {
 		},
 		error: function(d){
 			console.log('doQueryChatbot: ' + d.responseText);
+			msgBot('서버 연결에 실패하였습니다.')
 		}
 	});
 }
@@ -67,8 +70,34 @@ function hdlEnterOnTextbox(evt) {
 }
 
 function hdlOpenChat() {
-	var chatroom = $(".chatroom");
-	chatroom.toggle();
+	if ($(".chatmsgstack").has("li").length == 0) {
+		msgBot('안녕하세요.');
+	}
+	$(".chat").show();
+	$(".chatroom").show();
+	openChatBtn.hide();
+	checkMinimizeIcon();
+}
+
+function hdlCloseChat() {
+	$(".chat").hide();
+	$(".chatmsgstack li").remove();
+	openChatBtn.show();
+}
+
+function hdlMinimizeChat() {
+	$(".chatroom").toggle();	
+	openChatBtn.hide();
+	checkMinimizeIcon();
+}
+
+function checkMinimizeIcon() {
+	if ($(".chatroom").is(":visible")) {
+		minimizeChatBtn.text("_");
+	}
+	else {
+		minimizeChatBtn.text("\u2610");
+	}
 }
 
 function readyGlobalElems(){
@@ -76,13 +105,16 @@ function readyGlobalElems(){
 	userTextbox = $("#dmtext");
 	userSubmitBtn = $("#dmbtn");
 	openChatBtn = $("#openChat");
+	closeChatBtn = $("#closeChat");
+	minimizeChatBtn = $("#minimizeChat");
 }
 function main() {
 	readyGlobalElems();
 	userSubmitBtn.click(hdlUserSubmit);
 	userTextbox.keydown(hdlEnterOnTextbox);
 	openChatBtn.click(hdlOpenChat);
-
+	closeChatBtn.click(hdlCloseChat);
+	minimizeChatBtn.click(hdlMinimizeChat);
 	console.log('Doum front-end. - Web page');
 
 	msgBot('안녕하세요.');
