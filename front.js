@@ -93,7 +93,7 @@ function hdlMinimizeChat() {
 
 function checkMinimizeIcon() {
 	if ($(".chatroom").is(":visible")) {
-		minimizeChatBtn.text("_");
+		minimizeChatBtn.text("\u005F");
 	}
 	else {
 		minimizeChatBtn.text("\u2610");

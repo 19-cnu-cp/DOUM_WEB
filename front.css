@@ -50,7 +50,7 @@ body {
     width: 300px;
    
     border: 1px solid black;
-    background-color: #608ffb;
+    
     display: none;
 }
 
@@ -61,10 +61,13 @@ body {
 
 .crstatusbar
 {
-    width: 100%;
     font-weight: bold;
     font-size: 18px;
     text-align: center;
+    padding: 3px;
+    min-height: 29.2px;
+    background-color: #608ffb;
+    vertical-align: middle;
 }
 
 
@@ -80,10 +83,13 @@ body {
     
     float: right;
     margin-right: 4px;
+    height: 24.4px;
+    
 }
 
 #minimizeChat, #closeChat
 {
+    height: 24.4px;
 }
 
 .chatmsgstack {
